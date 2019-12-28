@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Polygon generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="options">
+    <section>
+        <label for="number-of-sides">Number of sides:</label>
+        <input type="text" id="number-of-sides" value="10">
+    </section>
+    <section>
+        <label for="line-width">Line width:</label>
+        <input type="text" id="line-width" value="4">
+    </section>
+    <section>
+        <label for="line-color">Line color:</label>
+        <input type="text" id="line-color" value="#f66">
+    </section>
+    <section>
+        <label for="fill-color">Fill color:</label>
+        <input type="text" id="fill-color" value="transparent">
+    </section>
+</div>
+<canvas id="canvas"></canvas>
+<script src="draw.js"></script>
+</body>
+</html>

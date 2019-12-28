@@ -1,0 +1,33 @@
+#canvas {
+    display: block;
+    margin: auto;
+    border: 1px solid bisque;
+    border-radius: 8px;
+    box-shadow: 4px 4px 8px #ccc;
+}
+
+#options {
+    position: fixed;
+    width: 240px;
+    height: 200px;
+    border: 1px solid dodgerblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 8px;
+    background-color: bisque;
+    box-shadow: 4px 4px 8px #ccc;
+}
+
+#options section input {
+    display: inline-block;
+    width: 80px;
+    padding: 4px 10px;
+}
+
+#options section label {
+    display: inline-block;
+    width: 120px;
+    text-align: right;
+    margin-right: 4px;
+}
