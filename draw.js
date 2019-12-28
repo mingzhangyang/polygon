@@ -41,16 +41,10 @@ function draw(opts = defaultOpts) {
   let ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  let w = window.innerWidth;
-  let h = window.innerHeight;
-  w = w > h ? h : w;
-  w = .8 * w;
-  let r = window.devicePixelRatio;
-  canvas.devicePixelRatio = r;
+  let w = canvas.clientWidth;
+  let r = canvas.devicePixelRatio;
   canvas.width = w * r;
   canvas.height = w * r;
-  canvas.style.width = w + 'px';
-  canvas.style.height = w + 'px';
 
   ctx.save();
   ctx.scale(r, r);
@@ -132,14 +126,32 @@ function drag() {
   });
 }
 
+function setupSize(canvas) {
+  let w = window.innerWidth;
+  let h = window.innerHeight;
+  w = w > h ? h : w;
+  w = .8 * w;
+  let r = window.devicePixelRatio;
+  canvas.devicePixelRatio = r;
+  canvas.width = w * r;
+  canvas.height = w * r;
+  canvas.style.width = w + 'px';
+  canvas.style.height = w + 'px';
+}
+
 window.onload = function main() {
-  draw();
   let canvas = document.getElementById("canvas");
+
+  setupSize(canvas);
+
   canvas.addEventListener("mouseenter", () => {
     if (window.devicePixelRatio !== canvas.devicePixelRatio) {
+      canvas.devicePixelRatio = window.devicePixelRatio;
       draw();
     }
   });
+
   setForUpdate();
   drag();
+  draw();
 };
