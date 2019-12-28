@@ -10,6 +10,8 @@
     position: fixed;
     width: 240px;
     height: 200px;
+    top: 0;
+    left: 0;
     border: 1px solid dodgerblue;
     display: flex;
     flex-direction: column;
@@ -17,6 +19,7 @@
     border-radius: 8px;
     background-color: bisque;
     box-shadow: 4px 4px 8px #ccc;
+    cursor: pointer;
 }
 
 #options section input {

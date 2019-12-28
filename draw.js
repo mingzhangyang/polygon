@@ -72,6 +72,7 @@ function draw(opts = defaultOpts) {
   ctx.restore();
   if (names[opts.n]) {
     ctx.save();
+    ctx.scale(r, r);
     ctx.fillStyle = "#222";
     ctx.font = "24px Arial";
     ctx.textAlign = "right";
@@ -109,6 +110,28 @@ function setForUpdate() {
   }
 }
 
+function drag() {
+  let div = document.getElementById("options");
+  let pressed = false;
+  div.addEventListener("mousedown", () => {
+    pressed = true;
+  });
+  div.addEventListener("mouseup", () => {
+    pressed = false;
+  });
+  div.addEventListener("mouseout", () => {
+    pressed = false;
+  });
+  div.addEventListener("mousemove", evt => {
+    if (pressed) {
+      let left = +div.style.left.split("px")[0];
+      let top = +div.style.top.split("px")[0];
+      div.style.left = `${left + evt.movementX}px`;
+      div.style.top = `${top + evt.movementY}px`;
+    }
+  });
+}
+
 window.onload = function main() {
   draw();
   let canvas = document.getElementById("canvas");
@@ -118,4 +141,5 @@ window.onload = function main() {
     }
   });
   setForUpdate();
+  drag();
 };
