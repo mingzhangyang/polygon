@@ -33,7 +33,10 @@
     width: 120px;
     text-align: right;
     margin-right: 4px;
-    -webkit-touch-callout: none; /* iOS Safari */
+}
+
+.non-selectable {
+  -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
        -moz-user-select: none; /* Old versions of Firefox */
